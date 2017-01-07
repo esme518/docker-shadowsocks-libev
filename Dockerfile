@@ -44,6 +44,5 @@ CMD ss-server -s $SERVER_ADDR \
               -k $PASSWORD    \
               -m $METHOD      \
               -t $TIMEOUT     \
-              -d $DNS_ADDR    \
               -u              \
               -A
