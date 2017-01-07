@@ -39,10 +39,10 @@ ENV SS_TIMEOUT  300
 EXPOSE $SS_PORT/tcp
 EXPOSE $SS_PORT/udp
 
-CMD ss-server -s $SERVER_ADDR \
-              -p $SERVER_PORT \
-              -k $PASSWORD    \
-              -m $METHOD      \
-              -t $TIMEOUT     \
+CMD ss-server -s $SS_ADDR     \
+              -p $SS_PORT     \
+              -k $SS_PASSWORD \
+              -m $SS_METHOD   \
+              -t $SS_TIMEOUT  \
               -u              \
               -A
