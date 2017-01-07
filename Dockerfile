@@ -27,7 +27,7 @@ RUN set -ex \
     && make \
     && make install \
     && cd .. \
-    && rm -rf $SS_DIR
+    && rm -rf $SS_DIR \
     && apk del .build-deps
 
 ENV SS_ADDR     0.0.0.0
