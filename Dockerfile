@@ -28,7 +28,8 @@ RUN set -ex \
     && make install \
     && cd .. \
     && rm -rf $SS_DIR \
-    && apk del .build-deps
+    && apk del .build-deps \
+    && rm -rf /var/cache/apk
 
 ENV SS_ADDR     0.0.0.0
 ENV SS_PORT     8388
