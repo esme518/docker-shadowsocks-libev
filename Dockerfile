@@ -4,7 +4,7 @@
 
 FROM alpine:3.4
 
-ENV SS_VER 2.6.2
+ENV SS_VER 2.6.3
 ENV SS_URL https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz
 ENV SS_DIR shadowsocks-libev-$SS_VER
 
