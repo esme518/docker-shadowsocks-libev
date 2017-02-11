@@ -2,25 +2,35 @@
 # Dockerfile for shadowsocks-libev
 #
 
-FROM alpine:3.4
+FROM alpine:3.5
 
-ENV SS_VER 2.6.3
-ENV SS_URL https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz
+ENV SS_VER 3.0.1
+ENV SS_URL https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SS_VER/shadowsocks-libev-$SS_VER.tar.gz
 ENV SS_DIR shadowsocks-libev-$SS_VER
 
 RUN set -ex \
     && apk add --no-cache --virtual .run-deps \
         pcre \
+        libev \
+        udns \
+        libsodium \
+        mbedtls \
     && apk add --no-cache --virtual .build-deps \
         curl \
         autoconf \
         build-base \
         libtool \
         linux-headers \
-        openssl-dev \
+        libressl-dev \
+        zlib-dev \
         asciidoc \
         xmlto \
         pcre-dev \
+        automake \
+        mbedtls-dev \
+        libsodium-dev \
+        udns-dev \
+        libev-dev \
     && curl -sSL $SS_URL | tar xz \
     && cd $SS_DIR \
     && ./configure \
@@ -45,5 +55,4 @@ CMD ss-server -s $SS_ADDR     \
               -k $SS_PASSWORD \
               -m $SS_METHOD   \
               -t $SS_TIMEOUT  \
-              -u              \
-              -A
+              -u
