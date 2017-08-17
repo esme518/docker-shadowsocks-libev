@@ -31,6 +31,7 @@ RUN set -ex \
         libsodium-dev \
         udns-dev \
         libev-dev \
+        rng-tools \
     && curl -sSL $SS_URL | tar xz \
     && cd $SS_DIR \
     && ./configure \
