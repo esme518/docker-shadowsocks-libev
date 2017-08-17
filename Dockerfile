@@ -2,9 +2,9 @@
 # Dockerfile for shadowsocks-libev
 #
 
-FROM alpine:3.5
+FROM alpine:3.6
 
-ENV SS_VER 3.0.1
+ENV SS_VER 3.0.8
 ENV SS_URL https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SS_VER/shadowsocks-libev-$SS_VER.tar.gz
 ENV SS_DIR shadowsocks-libev-$SS_VER
 
