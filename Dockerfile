@@ -19,6 +19,7 @@ RUN set -ex \
         mbedtls \
     && apk add --no-cache --virtual .build-deps \
         curl \
+        git \
         autoconf \
         build-base \
         libtool \
