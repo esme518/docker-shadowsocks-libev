@@ -47,6 +47,7 @@ ENV SS_PORT     8388
 ENV SS_PASSWORD p@ssw0rd
 ENV SS_METHOD   aes-256-cfb
 ENV SS_TIMEOUT  300
+ENV SS_PLUGIN   --plugin obfs-server --plugin-opts "obfs=http"
 
 EXPOSE $SS_PORT/tcp
 EXPOSE $SS_PORT/udp
@@ -56,4 +57,4 @@ CMD ss-server -s $SS_ADDR     \
               -k $SS_PASSWORD \
               -m $SS_METHOD   \
               -t $SS_TIMEOUT  \
-              -u
+              -u $SS_PLUGIN
