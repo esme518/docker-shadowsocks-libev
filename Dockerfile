@@ -7,9 +7,8 @@ FROM alpine:3.7
 ENV SS_VER 3.1.3
 ENV SS_URL https://github.com/shadowsocks/shadowsocks-libev/releases/download/v$SS_VER/shadowsocks-libev-$SS_VER.tar.gz
 ENV SS_DIR shadowsocks-libev-$SS_VER
-ENV OBFS_VER 0.0.5
-ENV OBFS_URL https://github.com/shadowsocks/simple-obfs/archive/v$OBFS_VER.tar.gz
-ENV OBFS_DIR simple-obfs-$OBFS_VER
+ENV OBFS_URL https://github.com/shadowsocks/simple-obfs.git
+ENV OBFS_DIR simple-obfs
 
 RUN set -ex \
     && apk add --no-cache --virtual .run-deps \
@@ -42,8 +41,9 @@ RUN set -ex \
     && make install \
     && cd .. \
     && rm -rf $SS_DIR \
-    && curl -sSL $OBFS_URL | tar xz \
+    && git clone $OBFS_URL \
     && cd $OBFS_DIR \
+    && git submodule update --init --recursive \
     && ./autogen.sh \
     && ./configure \
     && make \
