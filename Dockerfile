@@ -44,6 +44,7 @@ RUN set -ex \
     && rm -rf $SS_DIR \
     && curl -sSL $OBFS_URL | tar xz \
     && cd $OBFS_DIR \
+    && ./autogen.sh \
     && ./configure \
     && make \
     && make install \
