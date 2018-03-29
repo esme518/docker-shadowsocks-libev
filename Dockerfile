@@ -17,6 +17,7 @@ RUN set -ex \
         c-ares \
         libsodium \
         mbedtls \
+        rng-tools \
     && apk add --no-cache --virtual .build-deps \
         curl \
         git \
@@ -34,7 +35,6 @@ RUN set -ex \
         libsodium-dev \
         c-ares-dev \
         libev-dev \
-        rng-tools \
     && curl -sSL $SS_URL | tar xz \
     && cd $SS_DIR \
     && ./configure \
