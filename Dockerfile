@@ -49,9 +49,6 @@ ENV SS_PASSWORD p@ssw0rd
 ENV SS_METHOD   aes-256-cfb
 ENV SS_TIMEOUT  300
 
-EXPOSE $SS_PORT/tcp
-EXPOSE $SS_PORT/udp
-
 CMD ss-server -s $SS_ADDR     \
               -p $SS_PORT     \
               -k $SS_PASSWORD \
